@@ -28,8 +28,7 @@ public class Delivery {
 
     @PostPersist
     public void onPostPersist() {
-        DliveryStarted dliveryStarted = new DliveryStarted(this);
-        dliveryStarted.publishAfterCommit();
+       
     }
 
     public static DeliveryRepository repository() {
@@ -43,13 +42,17 @@ public class Delivery {
     public static void startDelivery(OrderPlaced orderPlaced) {
         //implement business logic here:
 
-        /** Example 1:  new item 
+        //Example 1:  new item 
         Delivery delivery = new Delivery();
+        delivery.setProductId(orderPlaced.getProductId());
+        delivery.setQty(orderPlaced.getQty());
+        delivery.setUserId(orderPlaced.getUserId());
+        delivery.setStatus("deliveryStarted");
         repository().save(delivery);
 
         DliveryStarted dliveryStarted = new DliveryStarted(delivery);
         dliveryStarted.publishAfterCommit();
-        */
+        
 
         /** Example 2:  finding and process
         

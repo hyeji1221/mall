@@ -19,7 +19,7 @@ public class Order {
     private Long id;
 
     private String userId;
-
+  
     private Long productId;
 
     private Integer qty;
